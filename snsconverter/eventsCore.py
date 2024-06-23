@@ -105,6 +105,10 @@ class EventsCore(Core):
         # constructs the message and replies WITHOUT a mention
         await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
 
+        # Remove embeds from user message if reply is successful
+        if ok:
+            await message.edit(suppress=True)
+
     async def _on_edit_twit_replacer(
         self, message_before: Message, message_after: Message
     ):
@@ -127,7 +131,11 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies WITHOUT a mention
-        await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER))
+        await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
+
+        # Remove embeds from user message if reply is successful
+        if ok:
+            await message.edit(suppress=True)
 
     async def _on_message_tik_replacer(self, message: Message):
         if not valid(message):
