@@ -106,8 +106,7 @@ class EventsCore(Core):
         ok = await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER)), mention_author=False)
 
         # Remove embeds from user message if reply is successful
-        if ok:
-            await message.edit(suppress=True)
+        if ok = message.edit(suppress=True)
 
     async def _on_edit_twit_replacer(self, message_before: Message, message_after: Message):
         # skips if the message is sent by any bot
