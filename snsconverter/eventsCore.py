@@ -104,7 +104,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-        await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER))
+        await message(fx_twtter_urls, SocialMedia.TWITTER)
 
     async def _on_edit_twit_replacer(
         self, message_before: Message, message_after: Message
