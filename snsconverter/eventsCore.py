@@ -127,7 +127,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies WITHOUT a mention
-        await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
+        await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER))
 
     async def _on_message_tik_replacer(self, message: Message):
         if not valid(message):
