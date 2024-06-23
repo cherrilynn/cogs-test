@@ -69,6 +69,7 @@ def convert_to_fx_twitter_url(message_content: str):
     -------
         filtered list of twitter/x URLs that have been converted to fxtwitter/fixupx
     """
+    embed = discord.Embed(color=discord.Color.from_rgb(126, 53, 136))
 
     message_split = message_content.split()
 
