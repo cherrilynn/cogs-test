@@ -103,6 +103,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
+        
         await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
         
         # Remove embeds from user message if reply is successful
@@ -130,7 +131,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-        await payload.message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
+        await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
         
         # Remove embeds from user message if reply is successful
         
