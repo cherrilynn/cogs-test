@@ -36,7 +36,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-        ok = await message.reply(urls_to_string(ddinsta_urls, SocialMedia.INSTAGRAM))
+        ok = await message.reply(urls_to_string(ddinsta_urls, SocialMedia.INSTAGRAM), mention_author=False)
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -77,8 +77,7 @@ class EventsCore(Core):
 
         # constructs the message and replies with a mention
         ok = await payload.cached_message.reply(
-            urls_to_string(ddinsta_urls, SocialMedia.INSTAGRAM)
-        )
+            urls_to_string(ddinsta_urls, SocialMedia.INSTAGRAM), mention_author=False)
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -104,7 +103,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-        await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER))
+        await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
 
     async def _on_edit_twit_replacer(
         self, message_before: Message, message_after: Message
@@ -128,7 +127,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-        await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER))
+        await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
 
     async def _on_message_tik_replacer(self, message: Message):
         if not valid(message):
@@ -153,7 +152,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-        ok = await message.reply(urls_to_string(vx_tiktok_urls, SocialMedia.TIKTOK))
+        ok = await message.reply(urls_to_string(vx_tiktok_urls, SocialMedia.TIKTOK), mention_author=False)
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -196,8 +195,7 @@ class EventsCore(Core):
 
         # constructs the message and replies with a mention
         ok = await payload.cached_message.reply(
-            urls_to_string(vx_tiktok_urls, SocialMedia.TIKTOK)
-        )
+            urls_to_string(vx_tiktok_urls, SocialMedia.TIKTOK), mention_author=False)
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -226,7 +224,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-        ok = await message.reply(urls_to_string(rxddit_urls, SocialMedia.REDDIT))
+        ok = await message.reply(urls_to_string(rxddit_urls, SocialMedia.REDDIT), mention_author=False)
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -269,8 +267,7 @@ class EventsCore(Core):
 
         # constructs the message and replies with a mention
         ok = await payload.cached_message.reply(
-            urls_to_string(rxddit_urls, SocialMedia.REDDIT)
-        )
+            urls_to_string(rxddit_urls, SocialMedia.REDDIT), mention_author=False)
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -299,7 +296,7 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-        ok = await message.reply(urls_to_string(vx_threads_urls, SocialMedia.THREADS))
+        ok = await message.reply(urls_to_string(vx_threads_urls, SocialMedia.THREADS), mention_author=False)
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -342,8 +339,7 @@ class EventsCore(Core):
 
         # constructs the message and replies with a mention
         ok = await payload.cached_message.reply(
-            urls_to_string(vx_threads_urls, SocialMedia.THREADS)
-        )
+            urls_to_string(vx_threads_urls, SocialMedia.THREADS), mention_author=False)
 
         # Remove embeds from user message if reply is successful
         if ok:
