@@ -110,7 +110,7 @@ class EventsCore(Core):
         
         # Remove embeds from user message if reply is successful
         if valid(message):        
-        await message.edit(suppress=True)
+            await message.edit(suppress=True)
     
 
     async def _on_edit_twit_replacer(self, message_before: Message, message_after: Message):
