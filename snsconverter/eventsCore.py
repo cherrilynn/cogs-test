@@ -107,7 +107,7 @@ class EventsCore(Core):
         
         # Remove embeds from user message if reply is successful
         if ok:
-            await message.edit(suppress=True)
+            await message.edit(suppress=False)
     
 
     async def _on_edit_twit_replacer(
@@ -136,7 +136,7 @@ class EventsCore(Core):
         
         # Remove embeds from user message if reply is successful
         if ok:
-            await message_after.edit(suppress=True)
+            await message_after.edit(suppress=False)
 
     async def _on_message_tik_replacer(self, message: Message):
         if not valid(message):
