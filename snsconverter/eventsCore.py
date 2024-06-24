@@ -110,33 +110,31 @@ class EventsCore(Core):
             await message.edit(suppress=True)
     
 
-    async def _on_edit_twit_replacer(
-        self, message_before: Message, message_after: Message
-    ):
+    async def _on_edit_twit_replacer(self, payload: RawMessageUpdateEvent):
         # skips if the message is sent by any bot
-        if not valid(message_after):
+        if not valid(payload.cached_message):
             return
 
-        if not await self.config.guild(message_after.guild).get_attr(KEY_ENABLED)():
+        if not await self.config.guild(payload.cached_message.guild).get_attr(KEY_ENABLED)():
             self.logger.debug(
                 "SNSConverter disabled for guild %s (%s), skipping",
-                message_after.guild.name,
-                message_after.guild.id,
+                payload.cached_message.guild.name,
+                payload.cached_message.guild.id,
             )
             return
 
-        fx_twtter_urls = convert_to_fx_twitter_url(message_after.content)
+        fx_twtter_urls = convert_to_fx_twitter_url(payload.data.content)
 
         # no changed urls detected
         if not fx_twtter_urls:
             return
 
         # constructs the message and replies with a mention
-        ok = await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
+        ok = await payload.cached_message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
         
         # Remove embeds from user message if reply is successful
         if ok:
-            await message_after.edit(suppress=True)
+            await payload.cached_message.edit(suppress=True)
 
     async def _on_message_tik_replacer(self, message: Message):
         if not valid(message):
