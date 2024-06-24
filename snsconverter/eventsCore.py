@@ -103,13 +103,10 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-
-        # constructs the message and replies with a mention
-        if valid(message):
-            await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
+        ok = await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
         
         # Remove embeds from user message if reply is successful
-        if valid(message):        
+        if ok:        
             await message.edit(suppress=True)
     
 
@@ -133,11 +130,10 @@ class EventsCore(Core):
             return
 
         # constructs the message and replies with a mention
-        if valid(message_after):
-            await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
+        ok = await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
         
         # Remove embeds from user message if reply is successful
-        if valid(message_after):
+        if ok:
             await message_after.edit(suppress=True)
 
     async def _on_message_tik_replacer(self, message: Message):
