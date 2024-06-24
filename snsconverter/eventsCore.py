@@ -35,8 +35,8 @@ class EventsCore(Core):
         if not ddinsta_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
-        ok = await message.reply(urls_to_string(ddinsta_urls, SocialMedia.INSTAGRAM), mention_author=False)
+        # constructs the message and replies with a mention
+        ok = await message.reply(urls_to_string(ddinsta_urls, SocialMedia.INSTAGRAM))
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -75,9 +75,10 @@ class EventsCore(Core):
         if not ddinsta_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
+        # constructs the message and replies with a mention
         ok = await payload.cached_message.reply(
-            urls_to_string(ddinsta_urls, SocialMedia.INSTAGRAM), mention_author=False)
+            urls_to_string(ddinsta_urls, SocialMedia.INSTAGRAM)
+        )
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -102,14 +103,12 @@ class EventsCore(Core):
         if not fx_twtter_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
-        ok = await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER)), mention_author=False)
+        # constructs the message and replies with a mention
+        await message.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER))
 
-        # Remove embeds from user message if reply is successful
-        if ok = 
-            await message.edit(suppress=True)
-
-    async def _on_edit_twit_replacer(self, message_before: Message, message_after: Message):
+    async def _on_edit_twit_replacer(
+        self, message_before: Message, message_after: Message
+    ):
         # skips if the message is sent by any bot
         if not valid(message_after):
             return
@@ -128,12 +127,8 @@ class EventsCore(Core):
         if not fx_twtter_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
-        ok = await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER), mention_author=False)
-
-        # Remove embeds from user message if reply is successful
-        if ok:
-            await message_after.edit(suppress=True)
+        # constructs the message and replies with a mention
+        await message_after.reply(urls_to_string(fx_twtter_urls, SocialMedia.TWITTER))
 
     async def _on_message_tik_replacer(self, message: Message):
         if not valid(message):
@@ -157,8 +152,8 @@ class EventsCore(Core):
         if not vx_tiktok_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
-        ok = await message.reply(urls_to_string(vx_tiktok_urls, SocialMedia.TIKTOK), mention_author=False)
+        # constructs the message and replies with a mention
+        ok = await message.reply(urls_to_string(vx_tiktok_urls, SocialMedia.TIKTOK))
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -199,9 +194,10 @@ class EventsCore(Core):
         if not vx_tiktok_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
+        # constructs the message and replies with a mention
         ok = await payload.cached_message.reply(
-            urls_to_string(vx_tiktok_urls, SocialMedia.TIKTOK), mention_author=False)
+            urls_to_string(vx_tiktok_urls, SocialMedia.TIKTOK)
+        )
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -229,8 +225,8 @@ class EventsCore(Core):
         if not rxddit_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
-        ok = await message.reply(urls_to_string(rxddit_urls, SocialMedia.REDDIT), mention_author=False)
+        # constructs the message and replies with a mention
+        ok = await message.reply(urls_to_string(rxddit_urls, SocialMedia.REDDIT))
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -271,9 +267,10 @@ class EventsCore(Core):
         if not rxddit_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
+        # constructs the message and replies with a mention
         ok = await payload.cached_message.reply(
-            urls_to_string(rxddit_urls, SocialMedia.REDDIT), mention_author=False)
+            urls_to_string(rxddit_urls, SocialMedia.REDDIT)
+        )
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -301,8 +298,8 @@ class EventsCore(Core):
         if not vx_threads_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
-        ok = await message.reply(urls_to_string(vx_threads_urls, SocialMedia.THREADS), mention_author=False)
+        # constructs the message and replies with a mention
+        ok = await message.reply(urls_to_string(vx_threads_urls, SocialMedia.THREADS))
 
         # Remove embeds from user message if reply is successful
         if ok:
@@ -343,9 +340,10 @@ class EventsCore(Core):
         if not vx_threads_urls:
             return
 
-        # constructs the message and replies WITHOUT a mention
+        # constructs the message and replies with a mention
         ok = await payload.cached_message.reply(
-            urls_to_string(vx_threads_urls, SocialMedia.THREADS), mention_author=False)
+            urls_to_string(vx_threads_urls, SocialMedia.THREADS)
+        )
 
         # Remove embeds from user message if reply is successful
         if ok:
